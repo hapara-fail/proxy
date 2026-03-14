@@ -22,6 +22,7 @@ const serverUrl = ((base) => {
     base.host = config.host;
   }
   base.port =
+    process.env.PORT ||
     ecosystemConfig[config.production ? 'env_production' : 'env'].PORT;
   base.pathname =
     (config.pathname || '/').replace(/\/+$|[^\w\/\.-]+/g, '') + '/';
